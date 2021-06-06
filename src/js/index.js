@@ -11,6 +11,7 @@ function insertHTML(element, html) {
 }
 
 window.onload = function() {
+    // def gonna turn this into an API at some point
     const coolWords = [
         "Reminder that you are amazing and loved.",
         "Reminder that you are loved and appreciated.",
@@ -18,12 +19,29 @@ window.onload = function() {
         "You're doing great today, keep it up.",
         "Even if you tried your hardest and failed, you still tried your hardest.",
         "Get some rest if you can, you deserve it.",
-        "Crying is perfectly okay. If you need to cry, go for it."
+        "Crying is perfectly okay.",
+        "You're valid.",
+        "You're not alone.",
+        "No matter what anyone says, you deserve the world.",
+        "Why don't you reward yourself a bit? Life is hard.",
+        "Trying is hard, it's okay if you can't always do it.",
+        "Don't forget about that important thing.",
+        "Remember, there are many ways to get help if you feel like you need it and you're ready.",
+        "Take a break, it's been tough.",
+        "There are people who understand what you're going through."
     ];
 
     const num = rng(0, coolWords.length);
     const div = document.getElementById("text");
-    const newHTML = `<p id="nicemessage">${coolWords[num]}</p>`;
+    const button = document.getElementById("generatenew")
+    const newHTML = `<p id="nicemessage">${coolWords[num]}</p>`
 
     insertHTML(div, newHTML)
+
+    button.onclick = function() {
+        const message = document.getElementById("nicemessage");
+        const newNum = rng(0, coolWords.length);
+
+        message.innerText = coolWords[newNum];
+    }
 }
