@@ -1,3 +1,5 @@
+const axios = require('axios').default;
+
 function rng(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -33,15 +35,20 @@ window.onload = function() {
 
     const num = rng(0, coolWords.length);
     const div = document.getElementById("text");
-    const button = document.getElementById("generatenew")
+    const generateButton = document.getElementById("generatenew");
+    const submitButton = document.getElementById("submit");
     const newHTML = `<p id="nicemessage">${coolWords[num]}</p>`
 
     insertHTML(div, newHTML)
 
-    button.onclick = function() {
+    generateButton.onclick = function() {
         const message = document.getElementById("nicemessage");
         const newNum = rng(0, coolWords.length);
 
         message.innerText = coolWords[newNum];
+    }
+
+    submitButton.onclick = function() {
+        
     }
 }
