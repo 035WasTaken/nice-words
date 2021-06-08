@@ -1,5 +1,3 @@
-const axios = require('axios').default;
-
 function rng(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
@@ -46,9 +44,5 @@ window.onload = function() {
         const newNum = rng(0, coolWords.length);
 
         message.innerText = coolWords[newNum];
-    }
-
-    submitButton.onclick = function() {
-        
     }
 }
